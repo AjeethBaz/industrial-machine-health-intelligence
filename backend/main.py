@@ -85,15 +85,16 @@ app = FastAPI(
     ),
     version="1.0.0",
 )
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://verbose-chainsaw-q7xxj7r7vqj43xgj5-5173.app.github.dev",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 def _pipeline_or_500():
     """Load the cached pipeline, converting pipeline errors to HTTP 500s."""
